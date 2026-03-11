@@ -1,0 +1,26 @@
+{
+  "event_id": "evt_01JXK78Q6T7D5S9G9X1A",
+  "event_type": "message.received",
+  "occurred_at": "2026-03-10T16:55:00.000Z",
+  "trace_id": "trc_123456789",
+  "message": {
+    "id": "msg_01JXK79H8W0A1SYQPF2",
+    "chat_id": "chat_01JXK7BQA21DX7GZ6ZW",
+    "protocol": "imessage",
+    "direction": "inbound",
+    "text": "Hey, can I get an update on my order?",
+    "status": "received",
+    "sent_at": "2026-03-10T16:54:58.000Z",
+    "attachments": [
+      {
+        "type": "image",
+        "url": "https://example.com/image.png"
+      }
+    ],
+    "contact": {
+      "id": "ct_01JXK7BVG7YQZQHEBQ6",
+      "name": "Alex Doe",
+      "phone": "+12025550123"
+    }
+  }
+}
