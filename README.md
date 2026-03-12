@@ -17,6 +17,7 @@ Import your local macOS iMessages into PostgreSQL and ingest external messaging 
 - PostgreSQL
 - Docker Compose
 - Vitest
+- Python + uv (optional local tooling)
 
 ## Quick Start
 
@@ -33,6 +34,21 @@ Health check:
 
 ```bash
 curl http://localhost:3000/health
+```
+
+## Optional uv Workflow (Python)
+
+This repo now includes a lightweight `uv` setup for Python-based local checks.
+
+```bash
+uv sync
+uv run python python_tools/check_imessage_db.py
+```
+
+Use a custom Apple Messages DB path:
+
+```bash
+uv run python python_tools/check_imessage_db.py --db-path ~/Library/Messages/chat.db
 ```
 
 ## Import Your Own iMessages (macOS)
@@ -110,11 +126,14 @@ From `.env.example`:
 - `npm run migrate` apply SQL migrations
 - `npm run import:imessage` import macOS iMessages
 - `npm test` run tests
+- `uv sync` create/update Python virtual environment from `pyproject.toml`
+- `uv run python python_tools/check_imessage_db.py` verify local `chat.db` readability and stats
 
 ## Project Structure
 
 - `src/` API server and webhook ingestion logic
 - `scripts/` migration and iMessage import scripts
+- `python_tools/` optional Python utilities managed via `uv`
 - `db/migrations/` SQL schema
 - `examples/` sample webhook payloads
 - `test/` unit tests
